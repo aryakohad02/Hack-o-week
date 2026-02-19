@@ -2,306 +2,270 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>World AI Travel Planner</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>WanderWithMe</title>
 
 <style>
-:root{
-  --primary:#1e3c72;
-  --secondary:#2a5298;
-  --accent:#ff7a18;
-  --glass:rgba(255,255,255,0.65);
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f4f9ff;
+    scroll-behavior: smooth;
 }
 
-/* RESET */
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(120deg,#c9d6ff,#fbc7d4);
-  min-height:100vh;
-  overflow-x:hidden;
+/* Header */
+header {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: white;
+    text-align: center;
+    padding: 25px;
 }
 
-/* FLOATING MAP BACKGROUND */
-.map-bg span{
-  position:absolute;
-  font-size:22px;
-  opacity:0.35;
-  animation:float 25s linear infinite;
-}
-@keyframes float{
-  from{transform:translateY(120vh);}
-  to{transform:translateY(-150vh);}
+/* Navbar */
+nav {
+    background: #0f3057;
+    padding: 12px;
+    text-align: center;
 }
 
-/* HERO */
-.hero{
-  text-align:center;
-  padding:80px 20px 50px;
-}
-.hero h1{
-  font-size:3rem;
-  margin:0;
-}
-.hero span{color:var(--primary);}
-.hero p{opacity:0.8;}
-
-/* CONTAINER */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* SETTINGS */
-.settings{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  background:var(--glass);
-  backdrop-filter:blur(15px);
-  padding:30px;
-  border-radius:25px;
-  box-shadow:0 25px 50px rgba(0,0,0,0.2);
+nav a:hover {
+    color: #00d4ff;
 }
 
-.settings label{font-weight:600;}
-.settings input,
-.settings select{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  margin-top:5px;
+/* Section Titles */
+.section-title {
+    text-align: center;
+    margin-top: 40px;
+    color: #1e3c72;
 }
 
-.settings button{
-  grid-column:span 2;
-  padding:14px;
-  border:none;
-  border-radius:16px;
-  background:linear-gradient(to right,var(--primary),var(--secondary));
-  color:white;
-  font-size:1rem;
-  cursor:pointer;
-  transition:transform 0.2s;
-}
-.settings button:hover{transform:scale(1.05);}
-
-/* ITINERARY */
-.itinerary{
-  margin-top:45px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
-}
-.card{
-  background:var(--glass);
-  backdrop-filter:blur(12px);
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.15);
-}
-.card h2{color:var(--primary);}
-
-/* CHATBOT */
-.chatbot{
-  margin-top:70px;
-  background:var(--glass);
-  backdrop-filter:blur(15px);
-  padding:30px;
-  border-radius:25px;
-  box-shadow:0 25px 50px rgba(0,0,0,0.2);
-}
-.chatbot h2{color:var(--accent);}
-
-.chatbox{
-  height:260px;
-  overflow-y:auto;
-  background:rgba(255,255,255,0.6);
-  padding:15px;
-  border-radius:15px;
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    padding: 20px;
 }
 
-.message{
-  max-width:75%;
-  padding:10px 15px;
-  margin:10px 0;
-  border-radius:18px;
-  font-size:0.95rem;
-}
-.user{
-  background:var(--primary);
-  color:white;
-  margin-left:auto;
-}
-.bot{
-  background:white;
-  color:#333;
+/* Cards */
+.blog-post {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
 }
 
-.input-area{
-  display:flex;
-  gap:10px;
-  margin-top:15px;
-}
-.input-area input{
-  flex:1;
-  padding:12px;
-  border-radius:12px;
-  border:none;
-}
-.input-area button{
-  padding:12px 18px;
-  border:none;
-  border-radius:12px;
-  background:linear-gradient(to right,var(--primary),var(--secondary));
-  color:white;
-  cursor:pointer;
+.blog-post img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:30px;
-  opacity:0.7;
+/* Filters */
+.filters {
+    text-align: center;
+    margin: 20px;
+}
+
+.filters button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    background: #1e3c72;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.filters button:hover {
+    background: #2a5298;
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.4s;
+}
+
+.gallery img:hover {
+    transform: scale(1.08);
+}
+
+/* Chatbox */
+.chatbox {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: white;
+    padding: 15px;
+    width: 260px;
+    box-shadow: 0 0 10px gray;
+    border-radius: 10px;
+}
+
+#chat-output {
+    height: 150px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .grid { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr; }
 }
 </style>
+
 </head>
 
 <body>
 
-<!-- FLOATING BACKGROUND -->
-<div class="map-bg">
-  <span style="left:10%">🌍 USA</span>
-  <span style="left:30%">🌍 Europe</span>
-  <span style="left:50%">🌍 Asia</span>
-  <span style="left:70%">🌍 Australia</span>
+<header>
+    <h1>🌍 WanderWithMe</h1>
+    <p>Explore the World Smartly</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#countries">Countries</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- DESTINATIONS -->
+<h2 class="section-title" id="home">🌎 Featured Destinations</h2>
+
+<div class="filters" id="countries">
+    <button onclick="filterSelection('all')">All</button>
+    <button onclick="filterSelection('india')">India</button>
+    <button onclick="filterSelection('france')">France</button>
+    <button onclick="filterSelection('usa')">USA</button>
 </div>
 
-<section class="hero">
-  <h1>🌍 <span>World AI Travel Planner</span></h1>
-  <p>Smart itinerary planning with AI assistance</p>
-</section>
+<div class="grid">
 
-<div class="container">
+<div class="blog-post india">
+    <img src="https://hblimg.mmtcdn.com/content/hubble/img/agra/mmt/activities/m_activities_agra_taj_mahal_4_l_492_801.jpg">
+    <h3>Taj Mahal</h3>
+    <p>Agra – Built by Shah Jahan (1632–1653).</p>
+</div>
 
-  <!-- SETTINGS -->
-  <div class="settings">
-    <div>
-      <label>Start Date</label>
-      <input type="date" id="startDate">
-    </div>
+<div class="blog-post india">
+    <img src="https://maharashtratourism.gov.in/wp-content/uploads/2023/10/sinhagad-fort.jpg">
+    <h3>Sinhagad Fort</h3>
+    <p>Pune – Historic fort of Shivaji Maharaj.</p>
+</div>
 
-    <div>
-      <label>End Date</label>
-      <input type="date" id="endDate">
-    </div>
+<div class="blog-post india">
+    <img src="https://static-blog.treebo.com/wp-content/uploads/2024/07/History-4-1024x675.jpg">
+    <h3>Shaniwar Wada</h3>
+    <p>Pune – Built in 1732 by Bajirao I.</p>
+</div>
 
-    <div>
-      <label>Country</label>
-      <select id="country">
-        <option>USA</option>
-        <option>France</option>
-        <option>Italy</option>
-        <option>Japan</option>
-        <option>India</option>
-        <option>Australia</option>
-      </select>
-    </div>
+<div class="blog-post france">
+    <img src="https://cdn.pixabay.com/photo/2016/11/19/11/05/architecture-1838626_640.jpg">
+    <h3>Eiffel Tower</h3>
+    <p>Paris – Built in 1889.</p>
+</div>
 
-    <div>
-      <label>Interest</label>
-      <select id="interest">
-        <option>City Tour</option>
-        <option>Nature</option>
-        <option>Adventure</option>
-        <option>Culture</option>
-      </select>
-    </div>
+<div class="blog-post usa">
+    <img src="https://images.unsplash.com/photo-1515081774057-84dcf72d0cf1?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHN0YXR1ZSUyMG9mJTIwbGliZXJ0eXxlbnwwfHwwfHx8MA==">
+    <h3>Statue of Liberty</h3>
+    <p>New York – Gift from France.</p>
+</div>
 
-    <div>
-      <label>Budget</label>
-      <select id="budget">
-        <option>Low</option>
-        <option>Medium</option>
-        <option>High</option>
-      </select>
-    </div>
-
-    <button onclick="generateItinerary()">Generate Itinerary</button>
-  </div>
-
-  <!-- ITINERARY RESULT -->
-  <div class="itinerary" id="itinerary"></div>
-
-  <!-- AI CHATBOT -->
-  <div class="chatbot">
-    <h2>🤖 AI Travel Assistant</h2>
-    <div class="chatbox" id="chatbox">
-      <div class="message bot">
-        Hi! Ask me about weather, food, destinations or trip duration ✈️
-      </div>
-    </div>
-    <div class="input-area">
-      <input id="userInput" placeholder="e.g. 3 day tour, food in Japan, weather in Italy">
-      <button onclick="sendMessage()">Send</button>
-    </div>
-  </div>
+<div class="blog-post usa">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Grand_canyon_wikivoyage_banner.jpg">
+    <h3>Grand Canyon</h3>
+    <p>Arizona – Famous natural wonder.</p>
+</div>
 
 </div>
 
-<footer>
-</footer>
+<!-- GALLERY -->
+<h2 class="section-title" id="gallery">📸 World Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<img src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f">
+<img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+<img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c">
+<img src="https://images.unsplash.com/photo-1483721310020-03333e577078">
+<img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad">
+<img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d">
+<img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29">
+
+</div>
+
+<!-- CONTACT -->
+<h2 class="section-title" id="contact">📞 Contact</h2>
+<p style="text-align:center;">Email: wanderwithme@gmail.com</p>
+
+<!-- AI CHATBOT -->
+<div class="chatbox">
+    <h3>🤖 AI Assistant</h3>
+    <div id="chat-output"></div>
+    <input type="text" id="user-input" placeholder="Ask travel questions..." style="width:100%">
+    <button onclick="askAI()" style="width:100%; margin-top:5px;">Send</button>
+</div>
 
 <script>
-function generateItinerary(){
-  const start=startDate.value;
-  const end=endDate.value;
-  const country=country.value;
-  const interest=interest.value;
-  const budget=budget.value;
+// FILTER
+function filterSelection(category) {
+    let items = document.getElementsByClassName("blog-post");
 
-  if(!start||!end){
-    alert("Please select travel dates");
-    return;
-  }
-
-  itinerary.innerHTML=`
-    <div class="card">
-      <h2>${country} Trip Plan</h2>
-      <p><b>Dates:</b> ${start} to ${end}</p>
-      <p><b>Interest:</b> ${interest}</p>
-      <p><b>Budget:</b> ${budget}</p>
-      <p>AI-recommended destinations and activities based on your preferences.</p>
-    </div>`;
+    for (let i = 0; i < items.length; i++) {
+        if (category === "all") {
+            items[i].style.display = "block";
+        } else {
+            items[i].style.display = items[i].classList.contains(category) ? "block" : "none";
+        }
+    }
 }
 
-function sendMessage(){
-  const input=document.getElementById("userInput");
-  const chatbox=document.getElementById("chatbox");
-  const text=input.value.trim();
-  if(!text) return;
+// AI ASSISTANT
+function askAI() {
+    let input = document.getElementById("user-input").value.toLowerCase();
+    let output = document.getElementById("chat-output");
 
-  chatbox.innerHTML+=`<div class="message user">${text}</div>`;
+    let response = "I can help with travel tips!";
 
-  let reply="I can help plan your trip 🌍";
-  const t=text.toLowerCase();
+    if (input.includes("pune")) {
+        response = "Visit Sinhagad Fort and Shaniwar Wada in Pune!";
+    }
+    else if (input.includes("goa")) {
+        response = "Best time to visit Goa is Nov–Feb.";
+    }
+    else if (input.includes("paris")) {
+        response = "Paris is famous for Eiffel Tower and cafes.";
+    }
 
-  if(t.includes("weather")) reply="Spring and autumn offer the best weather in most countries 🌤️";
-  else if(t.includes("food")) reply="Every country has unique cuisine — Japan 🍣, Italy 🍕, India 🍛";
-  else if(t.includes("3 day")) reply="A 3-day tour is ideal for major city highlights 🏙️";
-  else if(t.includes("destination")) reply="Top destinations include Paris, New York, Tokyo, Rome & Sydney ✈️";
+    output.innerHTML += "<p><b>You:</b> " + input + "</p>";
+    output.innerHTML += "<p><b>AI:</b> " + response + "</p>";
 
-  setTimeout(()=>{
-    chatbox.innerHTML+=`<div class="message bot">${reply}</div>`;
-    chatbox.scrollTop=chatbox.scrollHeight;
-  },400);
-
-  input.value="";
+    document.getElementById("user-input").value = "";
 }
 </script>
 
